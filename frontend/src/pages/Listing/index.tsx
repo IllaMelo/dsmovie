@@ -1,8 +1,26 @@
 import MovieCard from "assets/Components/MovieCard";
 import Pagination from "assets/Components/Pagination";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import {MoviePage} from "types/movie";
+import { BASE_URL } from "utils/requests";
 function Listing() {
+
+
+  const[pageNumber, setPageNumber] = useState(0);
+
+  useEffect(()=>{
+    axios.get(`${BASE_URL}/moviesWsize=128page=1`).then(response =>{
+      const data = response.data as MoviePage;
+      setPageNumber(data.number);
+    });
+
+  },[]);
+
+  
   return (
     <>
+      <p>{pageNumber}</p>
       <Pagination />
       <div className="container">
         <div className="row">
