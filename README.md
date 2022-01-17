@@ -2,6 +2,7 @@
 
 ## Para o desenvolvimento deste projeto, utilizou-se:
 - Java
+- Spring boot
 - Javascript
 - Typescript
 - Postman
